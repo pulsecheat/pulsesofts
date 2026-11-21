@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PULSE — Official</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #0b0708;
+    --red: #d83245;
+    --red2: #ff5264;
+    --text: #f8f1f2;
+    --muted: #9a8589;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 50% -10%, #761b302e, transparent 55%),
+        radial-gradient(circle at 90% 60%, #8b19201a, transparent 35%);
+}
+
+.container {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff0c;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #f04459, #761827);
+    box-shadow: 0 0 25px #d8324540;
+}
+
+.logo-icon svg {
+    width: 21px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: .2s;
+}
+
+nav a:hover { color: white; }
+
+.header-btn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #84313e;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.header-btn:hover { background: #a9293b; }
+
+/* HERO */
+
+.hero {
+    min-height: 590px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 70px 0;
+}
+
+.eyebrow {
+    color: #ff7181;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.eyebrow span {
+    color: var(--red2);
+    margin-right: 8px;
+}
+
+h1 {
+    font-size: clamp(48px, 7vw, 78px);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin: 25px 0;
+}
+
+h1 span {
+    color: var(--red2);
+    text-shadow: 0 0 35px #e12d4430;
+}
+
+.description {
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.buttons {
+    display: flex;
+    gap: 13px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 22px;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.primary {
+    background: linear-gradient(110deg, #e23b50, #962033);
+    color: white;
+    box-shadow: 0 10px 35px #a5223540;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px #c22b414d;
+}
+
+.secondary {
+    color: #d7c6c9;
+    border: 1px solid #ffffff18;
+}
+
+.secondary:hover { border-color: #a83b4b; }
+
+.plan .btn.secondary {
+    background: linear-gradient(110deg, #e23b50, #962033);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 10px 35px #a5223540;
+}
+
+.plan .btn.secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px #c22b414d;
+}
+
+/* VISUAL */
+
+.visual {
+    height: 370px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.orbit {
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border: 1px solid #e743572b;
+    border-radius: 50%;
+    box-shadow: 0 0 80px #9e1d3020;
+}
+
+.orbit::before,
+.orbit::after {
+    content: "";
+    position: absolute;
+    inset: 25px;
+    border: 1px solid #e743571c;
+    border-radius: 50%;
+}
+
+.orbit::after { inset: 55px; }
+
+.pulse-card {
+    position: relative;
+    width: 330px;
+    padding: 27px;
+    border-radius: 23px;
+    border: 1px solid #ff6e7e33;
+    background: linear-gradient(145deg, #2a1318ed, #110a0cf5);
+    box-shadow: 0 25px 80px #0009, 0 0 60px #c3263b22;
+    backdrop-filter: blur(15px);
+    transform: rotate(-4deg);
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    color: #a98e93;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.status { color: #e5a0a8; }
+
+.wave {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.wave svg { width: 100%; }
+
+.wave path {
+    fill: none;
+    stroke: #ef4b60;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 7px #ed4358);
+}
+
+.card-bottom {
+    border-top: 1px solid #ffffff12;
+    padding-top: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-bottom strong {
+    font-size: 21px;
+    letter-spacing: 3px;
+}
+
+.card-bottom small {
+    display: block;
+    color: #927d82;
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.float-tag {
+    position: absolute;
+    padding: 12px 15px;
+    border: 1px solid #a33b4a55;
+    background: #1a0e12;
+    border-radius: 10px;
+    color: #e8cdd1;
+    font-size: 10px;
+}
+
+.tag-one { top: 35px; right: 0; }
+.tag-two { bottom: 35px; left: 0; }
+
+/* SECTIONS */
+
+section { padding: 75px 0; }
+
+.section-head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.kicker {
+    color: #f05a6c;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    letter-spacing: -2px;
+    margin: 14px 0;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.feature {
+    padding: 26px;
+    border: 1px solid #ffffff12;
+    background: linear-gradient(145deg, #170e11, #10090b);
+    border-radius: 17px;
+    transition: .25s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: #9e3445;
+}
+
+.feature-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #72243235;
+    color: #ff6476;
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+/* SHOWCASE */
+
+.showcase-card {
+    max-width: 850px;
+    margin: auto;
+    padding: 9px;
+    border-radius: 22px;
+    border: 1px solid #ffffff17;
+    background: #160d10;
+    box-shadow: 0 20px 70px #0008;
+    transition: .3s;
+}
+
+.showcase-card:hover {
+    border-color: #bd3b4d;
+    transform: translateY(-4px);
+}
+
+.showcase-placeholder {
+    height: 370px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(ellipse at center, #78202e 0%, #260e14 42%, #10090b 80%);
+}
+
+/* PRICING */
+
+.pricing {
+    background: linear-gradient(180deg, transparent, #540d191a, transparent);
+}
+
+.plans {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 350px));
+    justify-content: center;
+    gap: 20px;
+}
+
+.plan {
+    padding: 30px;
+    border-radius: 19px;
+    border: 1px solid #ffffff16;
+    background: linear-gradient(145deg, #191013, #10090b);
+    transition: .25s;
+}
+
+.plan:hover { transform: translateY(-5px); }
+
+.plan.featured {
+    border-color: #bd3b4d;
+    box-shadow: 0 0 45px #a923361b;
+}
+
+.plan-label {
+    color: #b39da1;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.price {
+    font-size: 43px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 20px 0 5px;
+}
+
+.price small {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.plan-desc {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.plan ul {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.plan li {
+    font-size: 12px;
+    color: #d7c6c9;
+}
+
+.check {
+    color: #ff5b70;
+    margin-right: 9px;
+}
+
+.plan .btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* FAQ */
+
+.faq {
+    max-width: 720px;
+    margin: auto;
+}
+
+details {
+    border-bottom: 1px solid #ffffff14;
+    padding: 20px 0;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+summary::after {
+    content: "+";
+    color: #ff5b70;
+    font-size: 19px;
+}
+
+details[open] summary::after { content: "−"; }
+
+details p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #050304c9;
+    backdrop-filter: blur(9px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.purchase-modal {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 28px;
+    text-align: center;
+    border: 1px solid #a6384955;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #251116, #10090b);
+    box-shadow: 0 20px 90px #000b, 0 0 45px #b3223830;
+    transform: translateY(15px) scale(.97);
+    transition: .25s;
+}
+
+.active .purchase-modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #b99da2;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    color: #ff6576;
+    background: #72243245;
+    font-size: 24px;
+}
+
+.modal-price {
+    font-size: 38px;
+    font-weight: 800;
+    margin: 18px 0;
+}
+
+.modal-description {
+    color: #a99599;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.modal-action {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #ffffff10;
+    padding: 28px 0;
+    color: #79676c;
+    font-size: 11px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+footer strong {
+    color: #d9c6ca;
+    letter-spacing: 3px;
+}
+
+/* MOBILE */
+
+@media(max-width: 760px) {
+    nav { display: none; }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 0 35px;
+        text-align: center;
+    }
+
+    .description { margin: auto; }
+
+    .buttons { justify-content: center; }
+
+    .visual { height: 350px; }
+
+    .orbit {
+        width: 280px;
+        height: 280px;
+    }
+
+    .features { grid-template-columns: 1fr; }
+
+    .plans {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: auto;
+    }
+
+    .showcase-placeholder { height: 260px; }
+
+    section { padding: 55px 0; }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="container">
+    <div class="logo">
+        <div class="logo-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 12h4l2-5 4 10 2-5h6"/>
+            </svg>
+        </div>
+        PULSE
+    </div>
+
+    <nav>
+        <a href="#about">О продукте</a>
+        <a href="#features">Возможности</a>
+        <a href="#showcase">Галерея</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <a class="header-btn" href="#pricing">Выбрать тариф ↗</a>
+</header>
+
+<main>
+
+<div class="container hero">
+
+    <div>
+        <div class="eyebrow"><span>●</span> PULSE · YOUR NEXT LEVEL</div>
+
+        <h1>
+            Больше<br>
+            <span>контроля.</span><br>
+            Меньше шума.
+        </h1>
+
+        <p class="description">
+            PULSE — продукт, созданный с вниманием к деталям.
+            Чистый интерфейс, продуманный опыт и ничего лишнего.
+        </p>
+
+        <div class="buttons">
+            <a href="#pricing" class="btn primary">Посмотреть тарифы →</a>
+            <a href="#about" class="btn secondary">Подробнее</a>
+        </div>
+    </div>
+
+    <div class="visual">
+        <div class="orbit"></div>
+
+        <div class="float-tag tag-one">✦ CLEAN INTERFACE</div>
+        <div class="float-tag tag-two">● PULSE / ACTIVE</div>
+
+        <div class="pulse-card">
+            <div class="card-top">
+                <span>PRODUCT OVERVIEW</span>
+                <span class="status">● ONLINE</span>
+            </div>
+
+            <div class="wave">
+                <svg viewBox="0 0 320 110">
+                    <path d="M4 57 H72 L91 57 L108 27 L128 86 L148 10 L169 98 L190 57 H226 L241 39 L255 72 L270 57 H316"/>
+                </svg>
+            </div>
+
+            <div class="card-bottom">
+                <div>
+                    <strong>PULSE</strong>
+                    <small>BUILT FOR FOCUS</small>
+                </div>
+                <div class="feature-icon">⌁</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <div class="section-head">
+            <div class="kicker">ABOUT PULSE</div>
+            <h2>Ничего лишнего. Только суть.</h2>
+            <p class="subtitle">Всё важное — на своём месте.</p>
+        </div>
+
+        <div class="features" id="features">
+
+            <div class="feature">
+                <div class="feature-icon">↻</div>
+                <h3>Частые обновления</h3>
+                <p>Регулярные обновления, улучшения и новые возможности продукта.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✦</div>
+                <h3>Лучшие функции</h3>
+                <p>Продуманный набор возможностей, созданный для комфортного использования.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">⌁</div>
+                <h3>Постоянное развитие</h3>
+                <p>PULSE не стоит на месте. Мы постоянно работаем над развитием продукта.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SHOWCASE -->
+
+<section id="showcase">
+    <div class="container">
+
+        <div class="section-head">
+            <div class="kicker">DISCOVER PULSE</div>
+            <h2>Взгляни на нас.</h2>
+            <p class="subtitle">Познакомься с PULSE поближе.</p>
+        </div>
+
+        <div class="showcase-card">
+            <div class="showcase-placeholder">
+                <img src="pulse.jpg" alt="PULSE"
+                     style="width:100%; height:100%; object-fit:cover; border-radius:15px;">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+    <div class="container">
+
+        <div class="section-head">
+            <div class="kicker">SIMPLE PRICING</div>
+            <h2>Выбери свой доступ.</h2>
+            <p class="subtitle">Два понятных тарифа — без сложных условий.</p>
+        </div>
+
+        <div class="plans">
+
+            <div class="plan">
+                <div class="plan-label">WEEKLY ACCESS</div>
+
+                <div class="price">79 ₽ <small>/ неделя</small></div>
+
+                <p class="plan-desc">Попробуй PULSE и оцени продукт.</p>
+
+                <ul>
+                    <li><span class="check">✓</span> Доступ на 7 дней</li>
+                    <li><span class="check">✓</span> Основные возможности продукта</li>
+                    <li><span class="check">✓</span> Обновления в период доступа</li>
+                </ul>
+
+                <button class="btn secondary"
+                        onclick="openPurchase('week')">
+                    Выбрать на неделю →
+                </button>
+            </div>
+
+            <div class="plan featured">
+                <div class="plan-label">MONTHLY ACCESS · ВЫГОДНЕЕ</div>
+
+                <div class="price">399 ₽ <small>/ месяц</small></div>
+
+                <p class="plan-desc">Больше времени с PULSE.</p>
+
+                <ul>
+                    <li><span class="check">✓</span> Доступ на 30 дней</li>
+                    <li><span class="check">✓</span> Основные возможности продукта</li>
+                    <li><span class="check">✓</span> Обновления в период доступа</li>
+                </ul>
+
+                <button class="btn primary"
+                        onclick="openPurchase('month')">
+                    Выбрать на месяц →
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+    <div class="container">
+
+        <div class="section-head">
+            <div class="kicker">QUESTIONS</div>
+            <h2>Остались вопросы?</h2>
+        </div>
+
+        <div class="faq">
+
+            <details>
+                <summary>Как оформить доступ?</summary>
+                <p>Выбери подходящий тариф и перейди на страницу оформления заказа Playerok.</p>
+            </details>
+
+            <details>
+                <summary>На какой срок действует подписка?</summary>
+                <p>Недельный тариф действует 7 дней, месячный — 30 дней.</p>
+            </details>
+
+            <details>
+                <summary>Где получить поддержку?</summary>
+                <p>Свяжись с командой PULSE через официальный канал поддержки.</p>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- PURCHASE MODAL -->
+
+<div class="modal-overlay" id="purchaseModal"
+     onclick="closePurchaseOutside(event)">
+
+    <div class="purchase-modal">
+
+        <button class="modal-close"
+                onclick="closePurchase()">×</button>
+
+        <div class="modal-icon">✦</div>
+
+        <div class="kicker">PULSE ACCESS</div>
+
+        <h2 id="modalTitle">Недельная подписка</h2>
+
+        <div class="modal-price" id="modalPrice">79 ₽</div>
+
+        <p class="modal-description" id="modalDescription">
+            Перейдите к оформлению заказа.
+        </p>
+
+        <button class="btn primary modal-action"
+                onclick="goToPurchase()">
+            Перейти к покупке →
+        </button>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+    <div class="container footer-inner">
+        <strong>PULSE</strong>
+        <span>© 2026 PULSE. Все права защищены.</span>
+        <span>OFFICIAL PRODUCT</span>
+    </div>
+
+    <div class="container" style="margin-top:14px; text-align:center; color:#79676c; font-size:10px; line-height:1.7;">
+        PULSE предназначен для использования на публичных игровых серверах (пабликах).
+        Использование стороннего программного обеспечения может противоречить правилам игры или сервера.
+        Мы не гарантируем полную безопасность, отсутствие ограничений со стороны игры или бесперебойную работу продукта.
+    </div>
+</footer>
+
+<script>
+
+/* PLAYEROK LINKS */
+
+const PLAYEROK_LINKS = {
+    week: 'https://playerok.com/products/3e0fb0601691-pricel-na-ks2',
+    month: 'https://playerok.com/products/b60a97dd3b88-razreshenie-ekrana-s1mple'
+};
+
+let selectedPlan = null;
+
+/* OPEN MODAL */
+
+function openPurchase(type) {
+
+    const modal = document.getElementById('purchaseModal');
+
+    selectedPlan = type;
+
+    if (type === 'week') {
+
+        document.getElementById('modalTitle').textContent =
+            'Недельная подписка';
+
+        document.getElementById('modalPrice').textContent =
+            '79 ₽';
+
+        document.getElementById('modalDescription').textContent =
+            'Переход к оформлению недельного доступа PULSE.';
+
+    }
+
+    if (type === 'month') {
+
+        document.getElementById('modalTitle').textContent =
+            'Месячная подписка';
+
+        document.getElementById('modalPrice').textContent =
+            '399 ₽';
+
+        document.getElementById('modalDescription').textContent =
+            'Переход к оформлению месячного доступа PULSE.';
+
+    }
+
+    modal.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+}
+
+/* GO TO PLAYEROK */
+
+function goToPurchase() {
+
+    if (!selectedPlan || !PLAYEROK_LINKS[selectedPlan]) {
+        return;
+    }
+
+    window.open(
+        PLAYEROK_LINKS[selectedPlan],
+        '_blank',
+        'noopener,noreferrer'
+    );
+}
+
+/* CLOSE MODAL */
+
+function closePurchase() {
+
+    document.getElementById('purchaseModal').classList.remove('active');
+
+    document.body.style.overflow = '';
+
+}
+
+function closePurchaseOutside(event) {
+
+    if (event.target.id === 'purchaseModal') {
+        closePurchase();
+    }
+
+}
+
+/* ESCAPE */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+        closePurchase();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
